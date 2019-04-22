@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Spin Game</h1>
+    </div>
+
+    <div class="container text-center">
+    {% if bet_wallet %}
+
+        {% if game_is_played %}
+
+            <div class="jumbotron mt-3">
+                {% if game_result %}
+                    <h1 class='text-success'>You Won</h1>
+                {% else %}
+                    <h1 class='text-danger'>You Lose</h1>
+                {% endif %}
+                <a class="btn btn-lg btn-primary" href="{% url 'spinGame' %}">Play Again</a>
+            </div>
+
+        {% else %}
+
+            <div class="jumbotron mt-3">
+                <h1>Wallet € {{bet_wallet.amount}} ({{bet_wallet.currency}})</h1>
+                <p class="lead">this round have a bet of <span class="text-danger">€ {{bet_to_play}}</span></p>
+                <form method="POST">
+                {% csrf_token %}
+                    <button class="btn btn-lg btn-primary" type="Login">Play</button>
+                </form>
+            </div>
+
+        {% endif %}
+
+        
+    {% else %}
+
+        <div class="jumbotron mt-3">
+            <h1>=[</h1>
+            <p class="lead">You don't have money to play, make deposits to be able to play</p>
+        </div>
+
+    {% endif %}
+    </div>
+{% endblock %}

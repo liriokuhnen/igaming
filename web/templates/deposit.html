@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/jquery.priceformat.min.js' %}"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#id_amount').priceFormat({
+            prefix: '',
+            centsSeparator: ',',
+            thousandsSeparator: '.'
+        });
+    });
+    </script>
+{% endblock js%}
+
+{% block content %}
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Deposit</h1>
+        <p class="lead">This deposit will fill your Euro wallet</p>
+    </div>
+
+    <form method="post" class="form-signup">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.amount }}
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="Login">Deposit</button>
+    </form>
+{% endblock %}

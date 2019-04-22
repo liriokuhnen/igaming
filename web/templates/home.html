@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Wallet</h1>
+        <p class="lead">Here you can see all your wallets</p>
+    </div>
+    <div class="container">
+        <div class="card-deck mb-3 text-center">
+            {% if wallets %}
+                {% for wallet in wallets %}
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">{{wallet.currency}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">€ {{wallet.amount}}</h1>
+                        {% if wallet.currency == 'BNS' %}<p>{{wallet.get_bonus_status}}</p>{% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
