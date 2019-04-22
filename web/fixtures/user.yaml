@@ -1,0 +1,93 @@
+# user without money
+-   model: auth.user
+    pk: 1
+    fields:
+        password: pbkdf2_sha256$150000$pZts0lDuFqRn$VUevysdeKk/DzaDODpz8imfnYXEfUBW2Q9qpdK9md58=
+        is_superuser: false
+        username: test
+        is_staff: false
+        is_active: true
+-   model: web.wallet
+    pk: 1
+    fields: {user: 1,
+            currency: EUR,
+            amount: 00.00,
+            bet_amount: 00.00,
+            wagering_requirement: 0, 
+            depleted: false,
+            created: '2019-04-11T13:20:30+00:00'}
+
+# user with money only on eur wallet
+-   model: auth.user
+    pk: 2
+    fields:
+        password: pbkdf2_sha256$150000$pZts0lDuFqRn$VUevysdeKk/DzaDODpz8imfnYXEfUBW2Q9qpdK9md58=
+        is_superuser: false
+        username: username2
+        is_staff: false
+        is_active: true
+-   model: web.wallet
+    pk: 2
+    fields: {user: 2,
+            currency: EUR,
+            amount: 10.00,
+            bet_amount: 00.00,
+            wagering_requirement: 0, 
+            depleted: false,
+            created: '2019-04-11T13:20:30+00:00'}
+
+# user with money only on bns wallet
+-   model: auth.user
+    pk: 3
+    fields:
+        password: pbkdf2_sha256$150000$pZts0lDuFqRn$VUevysdeKk/DzaDODpz8imfnYXEfUBW2Q9qpdK9md58=
+        is_superuser: false
+        username: username3
+        is_staff: false
+        is_active: true
+-   model: web.wallet
+    pk: 3
+    fields: {user: 3,
+            currency: EUR,
+            amount: 00.00,
+            bet_amount: 00.00,
+            wagering_requirement: 0, 
+            depleted: false,
+            created: '2019-04-11T13:20:30+00:00'}
+-   model: web.wallet
+    pk: 4
+    fields: {user: 3,
+            currency: BNS,
+            amount: 10.00,
+            bet_amount: 00.00,
+            wagering_requirement: 0, 
+            depleted: false,
+            created: '2019-04-11T13:20:30+00:00'}
+
+# user with money at eur and bns wallet
+-   model: auth.user
+    pk: 4
+    fields:
+        password: pbkdf2_sha256$150000$pZts0lDuFqRn$VUevysdeKk/DzaDODpz8imfnYXEfUBW2Q9qpdK9md58=
+        is_superuser: false
+        username: username4
+        is_staff: false
+        is_active: true
+-   model: web.wallet
+    pk: 5
+    fields: {user: 4,
+            currency: EUR,
+            amount: 10.00,
+            bet_amount: 00.00,
+            wagering_requirement: 0, 
+            depleted: false,
+            created: '2019-04-11T13:20:30+00:00'}
+-   model: web.wallet
+    pk: 6
+    fields: {user: 4,
+            currency: BNS,
+            amount: 10.00,
+            bet_amount: 00.00,
+            wagering_requirement: 0, 
+            depleted: false,
+            created: '2019-04-11T13:20:30+00:00'}

@@ -1,0 +1,6 @@
+-   model: web.wallet
+    pk: 1
+    fields: {amount: '5.00', currency: EUR, wagering_requirement: 0, customer: 1,
+        created: ! '2016-10-26 18:21:58.617562+00:00', spent_money_on_start: '0.00',
+        depleted: false}
+
