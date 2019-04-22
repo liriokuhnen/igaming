@@ -120,3 +120,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
+# Authenticate config
+
+LOGIN_URL = 'signUp'
+
+# Games config
+
+MINIMUM_BET = 2.00
